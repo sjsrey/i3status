@@ -18,7 +18,25 @@ order += "wireless _first_"
 #order += "ethernet _first_"
 order += "battery all"
 order += "load"
+order += 'group tz'
 order += "tztime local"
+
+group tz {
+    cycle = 5
+    format = "{output}"
+    tztime ld {
+           format = "UK %I:%M"
+           timezone = "Europe/London"
+           }
+    tztime la {
+           format = "LA %I:%M"
+           timezone = "America/Los_Angeles"
+           }
+    tztime ny {
+           format = "NY %I:%M"
+           timezone = "America/New_York"
+           }
+}
 
 wireless _first_ {
         format_up = " (%quality at %essid) %ip"
